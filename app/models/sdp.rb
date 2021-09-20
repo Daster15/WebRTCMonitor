@@ -1,0 +1,2 @@
+class Sdp < ApplicationRecord
+end

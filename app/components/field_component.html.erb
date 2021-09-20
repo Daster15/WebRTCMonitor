@@ -1,0 +1,15 @@
+<div class="flex flex-wrap -mx-1 mb-1">
+    <div class="w-full px-3">
+   
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+        <%= @fieldheader %>
+      </label>
+    
+    <%= @form.text_field @name, ({ type: @type, class: css_classes }).merge(@options) %>
+    <p class="text-gray-600 text-xs italic">
+     <%= @fieldlabel %>
+    </p>
+    </div>
+  </div>
+
+

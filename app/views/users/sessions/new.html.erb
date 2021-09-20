@@ -1,0 +1,30 @@
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ 
+<!-- Root element for center items -->
+<div class="flex flex-col h-screen bg-gray-100">
+    <!-- Auth Card Container -->
+    <div class="grid place-items-center mx-2 my-20 sm:my-auto">
+        <!-- Auth Card -->
+        <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
+            px-6 py-10 sm:px-10 sm:py-6 
+            bg-white rounded-lg shadow-md lg:shadow-lg">
+
+            <!-- Card Title -->
+            <h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
+                Login
+            </h2>
+
+            <form class="mt-10" method="POST">
+            
+                <!-- Email Input -->
+              <%= render(Forms::FieldComponent.new(:email, form: f, css_class: %w[bg-white], type: :email, fieldheader:'User name',fieldlabel:'Type user e-mail', placeholder: 'User e-mail', autofocus: true, autocomplete: 'email', required: true)) %>
+              <%= render(Forms::FieldComponent.new(:password, form: f, css_class: %w[bg-white], type: :password, fieldheader:'User password',fieldlabel:'Type user password', placeholder: 'Password', autofocus: true, autocomplete: 'password', required: true)) %>
+                <!-- Auth Buttton -->
+              <%= render(Forms::ButtonComponent.new(text: 'Login',css_class: %w[w-full])) %>
+            </form>
+        </div>
+    </div>
+</div>
+<% end %>

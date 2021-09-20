@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<%= render(Topbar::ContentTopbarComponent.new(title: "Połączenia Webphone ( Janus Gateway )"))%>
+<%= turbo_frame_tag 'book123' do %>
+ <%= render "shared/pagination" %>
+<table class="w-full whitespace-no-wrap">
+     <thead>
+       <tr>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "timestamp" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "call_id" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "session" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "handle" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "username" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "callee" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4">...</th>
+       </tr>
+     </thead>
+     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+       <%= render Table::TrComponent.with_collection(@plugins, link: "plugins", columnname: '["timestamp", "call_id", "session","handle","username","callee"]')  %>
+     </tbody>
+</table>
+ <%= render "shared/pagination" %>
+
+ <% end %>
+

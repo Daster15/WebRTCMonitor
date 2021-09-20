@@ -1,0 +1,15 @@
+    <% if user_signed_in? %>
+	<aside
+      class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-gray-800 " data-nav-target="navMenu"
+      >
+        <div class="flex w-full max-w-xs p-4 ">
+			<ul class="flex flex-col w-full">
+
+				<li class="my-px">
+					<span class="flex font-medium text-2xl text-white px-4 mb-4 uppercase tracking-wide">turbo project</span>
+				</li>
+			   	<%= render(Menu::LinkMenuComponent.new(title: "Books", icon: "book", badge: nil, link:'books')) %>
+			</ul>
+		</div>
+    </aside>
+	<% end %>

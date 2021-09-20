@@ -1,0 +1,88 @@
+  <% if user_signed_in? %>
+  <header class="header bg-white shadow py-0 px-0">
+    <div class="mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <!-- Hamburger button-->
+          <div class="absolute inset-y-0 left-0 flex items-center ">
+            <button type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              data-action="click->nav#toggleMainMenuVisibility">
+
+              <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div class="ml-3 relative">
+            <div class="text-sm px-3 bg-gray-200 text-gray-800 rounded-full">
+              <%= current_user.email %>
+              <p id="notice"></p>
+            </div>
+          </div>
+          <div class="ml-3 relative">
+            <div>
+              <button type="button"
+                class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                id="user-menu" aria-expanded="false" aria-haspopup="true"
+                data-action="click->nav#toggleUserMenuVisibility">
+                <span class="sr-only">Open user menu</span>
+                  <%= image_tag user_avatar(current_user, 20), class: "h-8 w-8 rounded-full" %>                
+              </button>
+            </div>
+            <div class="absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 hidden "
+              style="width:8rem;" data-nav-target="userMenu">
+              <div class="py-2">
+                <a href="<%=edit_user_registration_path()%>"
+                  class="flex items-center px-4 py-3 border-t hover:bg-gray-100 -mx-2">
+                  <%= render(Icons::IconComponent.new(icon: "clients")) %>
+                  <p class="text-gray-600 text-sm mx-2">
+                    <span href="#">Settings</span>
+                  </p>
+                </a>
+                <a href="<%=destroy_user_session_path()%>"
+                  class="flex items-center px-4 py-3 border-t hover:bg-gray-100 -mx-2">
+                  <%= render(Icons::IconComponent.new(icon: "logout")) %>
+                  <p class="text-gray-600 text-sm mx-2">
+                    <span href="#">Logout</span>
+                  </p>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ml-3 relative">
+            <div>
+              <button
+                class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                data-action="click->nav#toggleUserLastActionsVisibility">
+                <span class="sr-only">Loading last actions ...</span>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+              </button>
+            </div>
+            <div class="absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 hidden"
+              style="width:20rem;" data-nav-target="lastActions">
+              <div class="py-2">
+                <ul data-nav-target="commits">
+                </ul>
+              </div>
+              <a href="" class="block bg-gray-800 text-white text-center font-bold py-2">History actions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <% end %>

@@ -1,0 +1,15 @@
+<div class="py-2">
+                <a href="<%=edit_user_registration_path()%>" class="flex items-center px-4 py-3 border-t hover:bg-gray-100 -mx-2">
+                  <%= render(Icons::IconComponent.new(icon: "clients")) %>
+                    <p class="text-gray-600 text-sm mx-2">
+                      <span  href="#">Settings</span> 
+                    </p>
+                </a>
+                <a href="<%=destroy_user_session_path()%>" class="flex items-center px-4 py-3 border-t hover:bg-gray-100 -mx-2">
+                  <%= render(Icons::IconComponent.new(icon: "logout")) %>
+                    <p class="text-gray-600 text-sm mx-2">
+                      <span href="#">Logout</span>
+                    </p>
+                </a>
+              </div>
+            </div>

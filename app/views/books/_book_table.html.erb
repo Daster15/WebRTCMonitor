@@ -1,0 +1,19 @@
+ <div class="w-full overflow-x-auto">
+ <%= render "shared/pagination" %>   
+
+   <table class=" w-full whitespace-no-wrap">
+     <thead>
+       <tr>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "name" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "author" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "category" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4"><%= sortable "price" %></th>
+         <th class="bg-blue-100 border text-left px-8 py-4">...</th>
+       </tr>
+     </thead>    
+     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+       <%= render Table::TrComponent.with_collection(@books, link: "books", columnname: '["name", "author","category","price"]')  %>
+     </tbody>
+   </table>
+<%= render "shared/pagination" %>
+</div>

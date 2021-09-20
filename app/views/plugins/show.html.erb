@@ -1,0 +1,41 @@
+<%= turbo_frame_tag 'book123' do %>
+<div class="flex flex-col flex-grow bg-white rounded mt-1 p-2 ">
+<%= link_to 'Back', plugins_path %>
+<div class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg mb-4">
+      <div class="flex flex-row">
+        <div class="px-2">
+          <svg width="24" height="24" viewBox="0 0 1792 1792" fill="#44C997" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1299 813l-422 422q-19 19-45 19t-45-19l-294-294q-19-19-19-45t19-45l102-102q19-19 45-19t45 19l147 147 275-275q19-19 45-19t45 19l102 102q19 19 19 45t-19 45zm141 83q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/>
+            </svg>
+        </div>
+        <div class="ml-2 mr-6">
+          <span class="font-semibold">CALL_ID: <%= @test %></span>
+          <span class="block text-gray-500">Czas połączenia: <%= @plugin.timestamp %> do <%= @test1 %></span>
+        </div>  
+      </div>
+      <div data-controller="chart" data-chart-url="<%= @plugin.handle %>" data-chart-call_id="<%= @test %>" data-chart-start_t="<%= @plugin.timestamp %>" data-chart-stop_t="<%= @test1 %>" ></div>
+    </div>
+<div class="grid grid-cols-2 gap-4">
+  <div data-controller="sip" 
+     data-sip-url="<%= @plugin.handle %>" 
+     data-sip-start_t="<%= @plugin.timestamp %>" 
+     data-sip-stop_t="<%= @test1 %>"
+    >
+    <ul data-target="sip.commits">
+    </ul>
+  </div>
+  <div data-controller="sdp" 
+     data-sdp-url="<%= @plugin.handle %>" 
+     data-sdp-start_t="<%= @plugin.timestamp %>" 
+     data-sdp-stop_t="<%= @test1 %>"
+    >
+    <ul data-target="sdp.commits">
+    </ul>
+  </div>
+</div>
+
+
+
+<%= link_to 'Back', plugins_path %>
+</div>
+<% end %>

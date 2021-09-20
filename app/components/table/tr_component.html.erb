@@ -1,0 +1,29 @@
+
+
+
+ <tr data-controller="table" class="text-gray-700 dark:text-gray-400 hover:bg-gray-100"  >
+    <% column_name.each do |column| %>
+    <td class="px-4 py-3">
+        <%= eval("@item.#{column}")%>
+    </td>
+    <% end %>
+     <td class="py-3">
+      <%= show_link %>
+      <%= inline %>  
+      <%= hide %>
+    </td>
+    <td>  
+    </td>
+ </tr>
+  <tr id=row_<%= item_id %> class="text-gray-700 dark:text-gray-400 hover:bg-gray-100 border-white col-span-full">
+    <td></td>
+  </tr>
+ 
+
+
+ 
+
+
+  
+
+ 

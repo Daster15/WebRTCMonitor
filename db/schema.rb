@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_081933) do
+ActiveRecord::Schema.define(version: 2021_09_23_120848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 2021_09_07_081933) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "connections", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "state"
+    t.datetime "timestamp"
+  end
+
+  create_table "core", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.datetime "timestamp"
+  end
+
   create_table "crudhistoryactions", force: :cascade do |t|
     t.string "action"
     t.text "content"
@@ -87,6 +100,15 @@ ActiveRecord::Schema.define(version: 2021_09_07_081933) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "dtls", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.integer "stream"
+    t.integer "component"
+    t.string "state"
+    t.datetime "timestamp"
+  end
+
   create_table "flipper_features", force: :cascade do |t|
     t.string "key", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -101,6 +123,94 @@ ActiveRecord::Schema.define(version: 2021_09_07_081933) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
+  end
+
+  create_table "handles", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "event"
+    t.string "plugin"
+    t.datetime "timestamp"
+  end
+
+  create_table "ice", force: :cascade do |t|
+    t.integer "session"
+    t.integer "handle"
+    t.integer "stream"
+    t.integer "component"
+    t.string "state"
+    t.datetime "timestamp"
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "medium"
+    t.boolean "receiving"
+    t.datetime "timestamp"
+  end
+
+  create_table "plugins", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "plugin"
+    t.string "event"
+    t.datetime "timestamp"
+    t.string "call_id"
+    t.string "username"
+    t.string "callee"
+    t.string "call_type"
+  end
+
+  create_table "sdps", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.boolean "remote"
+    t.boolean "offer"
+    t.string "sdp"
+    t.datetime "timestamp"
+  end
+
+  create_table "selectedpairs", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.integer "stream"
+    t.integer "component"
+    t.string "selected"
+    t.datetime "timestamp"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "session"
+    t.string "event"
+    t.datetime "timestamp"
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "medium"
+    t.integer "base"
+    t.integer "lsr"
+    t.integer "lostlocal"
+    t.integer "lostremote"
+    t.integer "jitterlocal"
+    t.integer "jitterremote"
+    t.integer "packetssent"
+    t.integer "packetsrecv"
+    t.bigint "bytessent"
+    t.bigint "bytesrecv"
+    t.bigint "nackssent"
+    t.bigint "nacksrecv"
+    t.datetime "timestamp"
+  end
+
+  create_table "transports", force: :cascade do |t|
+    t.bigint "session"
+    t.bigint "handle"
+    t.string "plugin"
+    t.string "event"
+    t.datetime "timestamp"
   end
 
   create_table "users", force: :cascade do |t|

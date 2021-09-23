@@ -5,7 +5,6 @@ class PluginsController < ApplicationController
   # GET /plugins or /plugins.json
   def index
     @pagy, @plugins  = pagy(Plugin.where(call_type: 'incoming').order(sort_column + " " + sort_direction))
-    #@plugins = Plugin.where(call_type: 'incoming')
   end
 
   # GET /plugins/1 or /plugins/1.json

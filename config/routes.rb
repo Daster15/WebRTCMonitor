@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root :to => 'books#index'
+  root :to => 'plugins#index'
 
   dir = File.expand_path(__dir__)
   files = Dir.glob("#{dir}/routes/*.rb")

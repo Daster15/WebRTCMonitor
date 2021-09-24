@@ -10,10 +10,10 @@ class PluginsController < ApplicationController
   # GET /plugins/1 or /plugins/1.json
   def show
     @get_call_id = @plugin.id 
-    @hello_message = Plugin.select(:id,:call_id).where(id: @plugin.id).first
-    @test = @hello_message.call_id
+    @sip_id_message = Plugin.select(:id,:call_id).where(id: @plugin.id).first
+    @connection_id = @sip_id_message.call_id
     @hangup_time = Plugin.where(call_type: "hangup", call_id: @plugin.call_id).first
-    @test1 = @hangup_time.timestamp
+    @time = @hangup_time.timestamp
   end
 
   # GET /plugins/new

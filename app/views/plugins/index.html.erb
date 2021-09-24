@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= render(Topbar::ContentTopbarComponent.new(title: "Połączenia Webphone ( Janus Gateway )"))%>
-<%= turbo_frame_tag 'book123' do %>
+<%= render(Topbar::ContentTopbarComponent.new(title: "WebRTC Voip Calls"))%>
+<%= turbo_frame_tag 'calls' do %>
  <%= render "shared/pagination" %>
 <table class="w-full whitespace-no-wrap">
      <thead>

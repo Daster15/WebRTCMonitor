@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'book123' do %>
+<%= turbo_frame_tag 'calls' do %>
 <div class="flex flex-col flex-grow bg-white rounded mt-1 p-2 ">
 <%= link_to 'Back', plugins_path %>
 <div class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg mb-4">
@@ -9,17 +9,17 @@
             </svg>
         </div>
         <div class="ml-2 mr-6">
-          <span class="font-semibold">CALL_ID: <%= @test %></span>
-          <span class="block text-gray-500">Czas połączenia: <%= @plugin.timestamp %> do <%= @test1 %></span>
+          <span class="font-semibold">CALL_ID: <%= @connection_id %></span>
+          <span class="block text-gray-500">Time range : <%= @plugin.timestamp %> do <%= @time %></span>
         </div>  
       </div>
-      <div data-controller="chart" data-chart-url="<%= @plugin.handle %>" data-chart-call_id="<%= @test %>" data-chart-start_t="<%= @plugin.timestamp %>" data-chart-stop_t="<%= @test1 %>" ></div>
+      <div data-controller="chart" data-chart-url="<%= @plugin.handle %>" data-chart-call_id="<%= @connection_id %>" data-chart-start_t="<%= @plugin.timestamp %>" data-chart-stop_t="<%= @time %>" ></div>
     </div>
 <div class="grid grid-cols-2 gap-4">
   <div data-controller="sip" 
      data-sip-url="<%= @plugin.handle %>" 
      data-sip-start_t="<%= @plugin.timestamp %>" 
-     data-sip-stop_t="<%= @test1 %>"
+     data-sip-stop_t="<%= @time %>"
     >
     <ul data-target="sip.commits">
     </ul>
@@ -27,7 +27,7 @@
   <div data-controller="sdp" 
      data-sdp-url="<%= @plugin.handle %>" 
      data-sdp-start_t="<%= @plugin.timestamp %>" 
-     data-sdp-stop_t="<%= @test1 %>"
+     data-sdp-stop_t="<%= @time %>"
     >
     <ul data-target="sdp.commits">
     </ul>

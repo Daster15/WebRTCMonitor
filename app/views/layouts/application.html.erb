@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsWebrtcMonitor</title>
+    <title>WebRtcMonitor</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,7 @@
   </head>
 
     <body>
-    <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800" data-controller="nav" data-nav-url="http://localhost:3000/crudhistoryactions">
+    <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800" data-controller="nav" data-nav-url="/crudhistoryactions">
     <%= render "shared/leftmenu" %>
     <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
       <%= render "shared/topbar" %>    

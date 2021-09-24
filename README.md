@@ -45,9 +45,9 @@ Distributed under the MIT License.
 
 Arkadiusz Rajczyk  - arkadiusz.rajczyk@gmail.com
 
-[screenshot-main]: https://github.com/Daster15/rails_hotwire_crud/blob/master/public/images/CallList.PNG
-[screenshot-flow1]: https://github.com/Daster15/rails_hotwire_crud/blob/master/public/images/CallFlow1.PNG
-[screenshot-flow2]: https://github.com/Daster15/rails_hotwire_crud/blob/master/public/images/CallFlow2.PNG
+[screenshot-main]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallList.PNG
+[screenshot-flow1]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow1.PNG
+[screenshot-flow2]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow2.PNG
 
 
 

@@ -10,9 +10,11 @@ This simple project allows you to trace call flow and help you understand how Vo
 You can easily trace some bugs during call VoIP. 
 
 
-[[screenshot-main]]
-[[screenshot-flow1]]
-[[screenshot-flow2]]
+<img src="https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallList.PNG" width="696" height="310" />
+<img src="https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow1.PNG" width="696" height="310" />
+<img src="https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow2.PNG" width="696" height="310" />
+
+
 
 
 ### Built With
@@ -45,9 +47,6 @@ Distributed under the MIT License.
 
 Arkadiusz Rajczyk  - arkadiusz.rajczyk@gmail.com
 
-[screenshot-main]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallList.PNG
-[screenshot-flow1]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow1.PNG
-[screenshot-flow2]: https://github.com/Daster15/WebRTCMonitor/blob/master/public/images/CallFlow2.PNG
 
 
 
